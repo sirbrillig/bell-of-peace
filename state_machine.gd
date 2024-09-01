@@ -26,11 +26,13 @@ func _physics_process(delta: float) -> void:
 
 func on_child_state_changed(prev_state: State, new_state_name: String) -> void:
 	if prev_state != current_state:
+		push_error("Received state change event from inactive state " + prev_state.name)
 		return
 	var new_state = states.get(new_state_name.to_lower())
 	if ! new_state:
+		assert(false, "Received state change event for nonexistent state " + new_state_name)
 		return
 	if current_state:
 		current_state.exit()
-	current_state.enter()
+	new_state.enter()
 	current_state = new_state

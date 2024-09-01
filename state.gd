@@ -4,8 +4,10 @@ class_name State
 signal state_changed
 
 func enter() -> void:
-	pass # Replace with function body.
+	pass
 
+func exit() -> void:
+	pass
 
 func update(_delta: float) -> void:
 	pass

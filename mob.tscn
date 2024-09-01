@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c0vbht3tuvvsi"]
+[gd_scene load_steps=23 format=3 uid="uid://c0vbht3tuvvsi"]
 
 [ext_resource type="Script" path="res://mob.gd" id="1_dteuc"]
 [ext_resource type="Texture2D" uid="uid://cvfvuefxcbqmi" path="res://Orc-Idle/Orc-Idle-0.png" id="7_hpw6k"]
@@ -19,6 +19,7 @@
 [ext_resource type="Script" path="res://chase_player.gd" id="19_6ca58"]
 [ext_resource type="Texture2D" uid="uid://c5h6cqxb22ppm" path="res://Orc-Walk/Orc-Walk-6.png" id="19_a8l2o"]
 [ext_resource type="Texture2D" uid="uid://htgpi3emnbqb" path="res://Orc-Walk/Orc-Walk-7.png" id="20_70eux"]
+[ext_resource type="Script" path="res://enemy_idle.gd" id="20_x54l6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_11yxm"]
 animations = [{
@@ -105,9 +106,17 @@ script = ExtResource("17_7g6os")
 script = ExtResource("18_t672t")
 initial_state = NodePath("ChasePlayer")
 
-[node name="ChasePlayer" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy")]
+[node name="ChasePlayer" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy", "attack_state", "unaware_state")]
 script = ExtResource("19_6ca58")
 speed = 40.0
 attack_range = 25.0
-aware_distance = 150.0
+aware_range = 150.0
 enemy = NodePath("../..")
+attack_state = NodePath("../EnemyIdle")
+unaware_state = NodePath("../EnemyIdle")
+
+[node name="EnemyIdle" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy", "next_state")]
+script = ExtResource("20_x54l6")
+enemy = NodePath("../..")
+next_state_range = 140.0
+next_state = NodePath("../ChasePlayer")
