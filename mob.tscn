@@ -78,8 +78,10 @@ size = Vector2(13, 13)
 script = ExtResource("1_dteuc")
 speed = 40.0
 attack_range = 25.0
-aware_distance = 80.0
-gravity = 40.0
+aware_distance = 150.0
+jump_height = 15.0
+jump_time_to_peak = 0.2
+jump_time_to_descent = 0.25
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
