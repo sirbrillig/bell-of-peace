@@ -14,6 +14,10 @@ var player_position: Vector2
 @onready var jump_gravity: float = ((-2.0 * jump_height ) / (jump_time_to_peak * jump_time_to_peak)) * -1.0
 @onready var fall_gravity: float = ((-2.0 * jump_height ) / (jump_time_to_descent * jump_time_to_descent)) * -1.0
 
+var facing: int = RIGHT
+const LEFT = 0
+const RIGHT = 1
+
 func calc_gravity() -> float:
 	if velocity.y < 0.0:
 		return jump_gravity
@@ -33,9 +37,23 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if velocity.x != 0:
 		$AnimatedSprite2D.animation = "walk"
-		$AnimatedSprite2D.flip_h = velocity.x < 0
 	else:
 		$AnimatedSprite2D.animation = "idle"
+		
+	# Note that setting scale.x to -1 just flips the orientation 
+	# but does not permanently change scale.x!
+	if velocity.x < 0 and facing != LEFT:
+		flip_character_side()
+	if velocity.x > 0 and facing != RIGHT:
+		flip_character_side()	
+
+	if velocity.x > 0:
+		facing = RIGHT
+	if velocity.x < 0:
+		facing = LEFT
+		
+func flip_character_side():
+	scale.x = -1
 
 func _physics_process(delta: float) -> void:
 	player_position = player.position
