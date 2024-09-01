@@ -76,6 +76,10 @@ size = Vector2(12, 19)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_j24fr")
+speed = 100.0
+jump_height = 40.0
+jump_time_to_peak = 0.4
+jump_time_to_descent = 0.3
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -89,6 +93,5 @@ position = Vector2(-1, 0.5)
 shape = SubResource("RectangleShape2D_xu03d")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -67)
+position = Vector2(-2, -35)
 position_smoothing_enabled = true
-position_smoothing_speed = 2.0
