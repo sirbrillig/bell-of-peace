@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c0vbht3tuvvsi"]
+[gd_scene load_steps=20 format=3 uid="uid://c0vbht3tuvvsi"]
 
 [ext_resource type="Script" path="res://mob.gd" id="1_dteuc"]
 [ext_resource type="Texture2D" uid="uid://cvfvuefxcbqmi" path="res://Orc-Idle/Orc-Idle-0.png" id="7_hpw6k"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://cnocvkocrung2" path="res://Orc-Walk/Orc-Walk-1.png" id="14_tnfw5"]
 [ext_resource type="Texture2D" uid="uid://box8dxcay4ml2" path="res://Orc-Walk/Orc-Walk-2.png" id="15_so1ny"]
 [ext_resource type="Texture2D" uid="uid://b2nh8s8gtreh0" path="res://Orc-Walk/Orc-Walk-3.png" id="16_p0r2d"]
+[ext_resource type="Script" path="res://gravity_component.gd" id="16_yag70"]
+[ext_resource type="Script" path="res://facing_component.gd" id="17_7g6os"]
 [ext_resource type="Texture2D" uid="uid://b4pirg8t3ptu3" path="res://Orc-Walk/Orc-Walk-4.png" id="17_xj6xv"]
 [ext_resource type="Texture2D" uid="uid://dswsc4ngtxuda" path="res://Orc-Walk/Orc-Walk-5.png" id="18_2h6p1"]
 [ext_resource type="Texture2D" uid="uid://c5h6cqxb22ppm" path="res://Orc-Walk/Orc-Walk-6.png" id="19_a8l2o"]
@@ -79,9 +81,6 @@ script = ExtResource("1_dteuc")
 speed = 40.0
 attack_range = 25.0
 aware_distance = 150.0
-jump_height = 15.0
-jump_time_to_peak = 0.3
-jump_time_to_descent = 0.25
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -93,3 +92,12 @@ position = Vector2(-3, 1)
 shape = SubResource("RectangleShape2D_d8hsj")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+
+[node name="GravityComponent" type="Node2D" parent="."]
+script = ExtResource("16_yag70")
+jump_height = 15.0
+jump_time_to_peak = 0.3
+jump_time_to_descent = 0.25
+
+[node name="FacingComponent" type="Node2D" parent="."]
+script = ExtResource("17_7g6os")
