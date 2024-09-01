@@ -76,7 +76,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xu03d"]
 size = Vector2(12, 19)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_j24fr")
 speed = 100.0
 metadata/_edit_group_ = true
@@ -100,5 +100,5 @@ jump_height = 40.0
 jump_time_to_peak = 0.4
 jump_time_to_descent = 0.3
 
-[node name="FacingComponent" type="Node2D" parent="."]
+[node name="FacingComponent" type="Node2D" parent="." groups=["Player"]]
 script = ExtResource("17_dsygk")

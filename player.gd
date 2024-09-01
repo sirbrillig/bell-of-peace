@@ -14,7 +14,7 @@ func _process(_delta: float) -> void:
 	else:
 		$AnimatedSprite2D.animation = "idle"
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var direction_h = Input.get_axis("ui_left", "ui_right")
 	velocity.x = speed * direction_h
 	

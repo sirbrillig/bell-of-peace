@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c0vbht3tuvvsi"]
+[gd_scene load_steps=22 format=3 uid="uid://c0vbht3tuvvsi"]
 
 [ext_resource type="Script" path="res://mob.gd" id="1_dteuc"]
 [ext_resource type="Texture2D" uid="uid://cvfvuefxcbqmi" path="res://Orc-Idle/Orc-Idle-0.png" id="7_hpw6k"]
@@ -15,6 +15,8 @@
 [ext_resource type="Script" path="res://facing_component.gd" id="17_7g6os"]
 [ext_resource type="Texture2D" uid="uid://b4pirg8t3ptu3" path="res://Orc-Walk/Orc-Walk-4.png" id="17_xj6xv"]
 [ext_resource type="Texture2D" uid="uid://dswsc4ngtxuda" path="res://Orc-Walk/Orc-Walk-5.png" id="18_2h6p1"]
+[ext_resource type="Script" path="res://state_machine.gd" id="18_t672t"]
+[ext_resource type="Script" path="res://chase_player.gd" id="19_6ca58"]
 [ext_resource type="Texture2D" uid="uid://c5h6cqxb22ppm" path="res://Orc-Walk/Orc-Walk-6.png" id="19_a8l2o"]
 [ext_resource type="Texture2D" uid="uid://htgpi3emnbqb" path="res://Orc-Walk/Orc-Walk-7.png" id="20_70eux"]
 
@@ -78,9 +80,6 @@ size = Vector2(13, 13)
 
 [node name="Mob" type="CharacterBody2D"]
 script = ExtResource("1_dteuc")
-speed = 40.0
-attack_range = 25.0
-aware_distance = 150.0
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -101,3 +100,14 @@ jump_time_to_descent = 0.25
 
 [node name="FacingComponent" type="Node2D" parent="."]
 script = ExtResource("17_7g6os")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("18_t672t")
+initial_state = NodePath("ChasePlayer")
+
+[node name="ChasePlayer" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("19_6ca58")
+speed = 40.0
+attack_range = 25.0
+aware_distance = 150.0
+enemy = NodePath("../..")
