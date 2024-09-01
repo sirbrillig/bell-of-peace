@@ -77,6 +77,7 @@ animations = [{
 size = Vector2(12, 19)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
+collision_mask = 3
 script = ExtResource("1_j24fr")
 speed = 100.0
 metadata/_edit_group_ = true
