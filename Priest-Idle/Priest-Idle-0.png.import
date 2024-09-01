@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://du6qqw7b7ko2x"
-path="res://.godot/imported/bell-monk_run_0002.png-d20648bd04fcfd8a4a9b0e3bb4b4637a.ctex"
+uid="uid://chqmsp78v45ft"
+path="res://.godot/imported/Priest-Idle-0.png-582df6a0e8e4666b1c2e74234e1484c9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://bell-monk_run_0002.png"
-dest_files=["res://.godot/imported/bell-monk_run_0002.png-d20648bd04fcfd8a4a9b0e3bb4b4637a.ctex"]
+source_file="res://Priest-Idle/Priest-Idle-0.png"
+dest_files=["res://.godot/imported/Priest-Idle-0.png-582df6a0e8e4666b1c2e74234e1484c9.ctex"]
 
 [params]
 

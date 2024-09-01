@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1m86mw8mxnxm"
-path="res://.godot/imported/bell-monk_0001.png-d10b4e6f9c8b52026c26b35da670f0a2.ctex"
+uid="uid://c281ibg06ttdt"
+path="res://.godot/imported/Priest-Walk-0.png-2534a091cefb93dd2dcc65f408e4d7b8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://bell-monk_0001.png"
-dest_files=["res://.godot/imported/bell-monk_0001.png-d10b4e6f9c8b52026c26b35da670f0a2.ctex"]
+source_file="res://Priest-Walk/Priest-Walk-0.png"
+dest_files=["res://.godot/imported/Priest-Walk-0.png-2534a091cefb93dd2dcc65f408e4d7b8.ctex"]
 
 [params]
 

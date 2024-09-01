@@ -1,48 +1,94 @@
-[gd_scene load_steps=8 format=3 uid="uid://ckkvgyes778g"]
+[gd_scene load_steps=18 format=3 uid="uid://ckkvgyes778g"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_j24fr"]
-[ext_resource type="Texture2D" uid="uid://d1m86mw8mxnxm" path="res://bell-monk_0001.png" id="1_mvwqt"]
-[ext_resource type="Texture2D" uid="uid://dxkmpfu2gl3n0" path="res://bell-monk_0002.png" id="2_73pbo"]
-[ext_resource type="Texture2D" uid="uid://bxdpqpq8s8rec" path="res://bell-monk_run_0001.png" id="3_mdwh1"]
-[ext_resource type="Texture2D" uid="uid://du6qqw7b7ko2x" path="res://bell-monk_run_0002.png" id="4_vbfbi"]
+[ext_resource type="Texture2D" uid="uid://chqmsp78v45ft" path="res://Priest-Idle/Priest-Idle-0.png" id="2_ypgkm"]
+[ext_resource type="Texture2D" uid="uid://dskfu5hagg422" path="res://Priest-Idle/Priest-Idle-1.png" id="3_b6dtj"]
+[ext_resource type="Texture2D" uid="uid://cnglw8nqrem0p" path="res://Priest-Idle/Priest-Idle-2.png" id="4_65v3u"]
+[ext_resource type="Texture2D" uid="uid://ds42jl1mfs7s2" path="res://Priest-Idle/Priest-Idle-3.png" id="5_rmsmo"]
+[ext_resource type="Texture2D" uid="uid://bhirasrcbys20" path="res://Priest-Idle/Priest-Idle-4.png" id="6_ttntp"]
+[ext_resource type="Texture2D" uid="uid://ceru1vgnumghp" path="res://Priest-Idle/Priest-Idle-5.png" id="7_npt3t"]
+[ext_resource type="Texture2D" uid="uid://c281ibg06ttdt" path="res://Priest-Walk/Priest-Walk-0.png" id="8_jpsvl"]
+[ext_resource type="Texture2D" uid="uid://c51i3cbsigf6o" path="res://Priest-Walk/Priest-Walk-1.png" id="9_soafd"]
+[ext_resource type="Texture2D" uid="uid://d2480yxoes2ec" path="res://Priest-Walk/Priest-Walk-2.png" id="10_epyfm"]
+[ext_resource type="Texture2D" uid="uid://cahuwfrolhpj8" path="res://Priest-Walk/Priest-Walk-3.png" id="11_qgpg4"]
+[ext_resource type="Texture2D" uid="uid://ef6v865vxcxm" path="res://Priest-Walk/Priest-Walk-4.png" id="12_toic0"]
+[ext_resource type="Texture2D" uid="uid://hutsic25e8u3" path="res://Priest-Walk/Priest-Walk-5.png" id="13_td0ek"]
+[ext_resource type="Texture2D" uid="uid://bdg28fin1dr8a" path="res://Priest-Walk/Priest-Walk-6.png" id="14_68qej"]
+[ext_resource type="Texture2D" uid="uid://bbo2s8bdimclb" path="res://Priest-Walk/Priest-Walk-7.png" id="15_7buk7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vloih"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_mvwqt")
+"texture": ExtResource("2_ypgkm")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_73pbo")
+"texture": ExtResource("3_b6dtj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_65v3u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_rmsmo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ttntp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_npt3t")
 }],
 "loop": true,
 "name": &"idle",
-"speed": 2.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_mdwh1")
+"texture": ExtResource("8_jpsvl")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_vbfbi")
+"texture": ExtResource("9_soafd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_epyfm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_qgpg4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_toic0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_td0ek")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_68qej")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_7buk7")
 }],
 "loop": true,
 "name": &"walk",
-"speed": 4.0
+"speed": 8.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xu03d"]
-size = Vector2(7, 13)
+size = Vector2(12, 19)
 
-[node name="Player" type="Area2D"]
+[node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_j24fr")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_vloih")
 animation = &"walk"
+frame = 1
+frame_progress = 0.214474
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.5, 1.5)
+position = Vector2(-1, 0.5)
 shape = SubResource("RectangleShape2D_xu03d")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -67)
+position_smoothing_enabled = true
+position_smoothing_speed = 2.0
