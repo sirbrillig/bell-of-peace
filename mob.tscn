@@ -79,6 +79,7 @@ script = ExtResource("1_dteuc")
 speed = 40.0
 attack_range = 25.0
 aware_distance = 80.0
+gravity = 40.0
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

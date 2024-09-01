@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var speed: float
 @export var attack_range: float
 @export var aware_distance: float
+@export var gravity: float
 var player_position: Vector2
 @onready var player: CharacterBody2D = get_node("../Player")
 
@@ -27,5 +28,6 @@ func _physics_process(delta: float) -> void:
 		velocity.x = (position.direction_to(player_position) * speed).x
 	else:
 		velocity.x = 0
-	velocity.y += 50 #FIXME: do better gravity
+	if !is_on_floor():
+		velocity.y += gravity
 	move_and_slide()
