@@ -13,9 +13,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if is_attacking:
 		$AnimatedSprite2D.animation = "attack"
-		$AttackArea/AttackShape.set_deferred("disabled", false)
 		return
-	$AttackArea/AttackShape.set_deferred("disabled", true)
 	if velocity.x != 0:
 		$AnimatedSprite2D.animation = "walk"
 		return

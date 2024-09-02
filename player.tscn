@@ -48,11 +48,23 @@ animations = [{
 "texture": ExtResource("4_1mjqr")
 }, {
 "duration": 1.0,
+"texture": ExtResource("2_o27e6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_noqin")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1mjqr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_mpg73")
+}, {
+"duration": 1.0,
 "texture": ExtResource("5_mpg73")
 }],
 "loop": false,
 "name": &"hurt",
-"speed": 12.0
+"speed": 18.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -122,8 +134,8 @@ metadata/_edit_group_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_vloih")
 animation = &"hurt"
-frame = 2
-frame_progress = 0.549195
+frame = 11
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.5, -1)

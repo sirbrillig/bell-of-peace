@@ -156,9 +156,10 @@ enemy = NodePath("../..")
 next_state_range = 140.0
 next_state = NodePath("../ChasePlayer")
 
-[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy", "animation")]
+[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy", "attack_shape", "animation")]
 script = ExtResource("27_rwgth")
 enemy = NodePath("../..")
+attack_shape = NodePath("../../AttackArea/AttackShape")
 animation = NodePath("../../AnimatedSprite2D")
 
 [node name="AttackArea" type="Area2D" parent="."]
