@@ -13,4 +13,4 @@ func _process(_delta: float) -> void:
 
 func _on_body_entered(body) -> void:
 	if body is Mob:
-		body.is_healed = true
+		body.touched_by_player()
