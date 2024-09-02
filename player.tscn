@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://ckkvgyes778g"]
+[gd_scene load_steps=28 format=3 uid="uid://ckkvgyes778g"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_j24fr"]
 [ext_resource type="Texture2D" uid="uid://dbfpismsg1h34" path="res://Priest-Hurt/Priest-Hurt-0.png" id="2_o27e6"]
@@ -22,6 +22,7 @@
 [ext_resource type="Script" path="res://gravity_component.gd" id="16_vys1i"]
 [ext_resource type="Script" path="res://facing_component.gd" id="17_dsygk"]
 [ext_resource type="Script" path="res://hit_points_component.gd" id="18_okex3"]
+[ext_resource type="Script" path="res://player_attack.gd" id="23_gfm7g"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vloih"]
 animations = [{
@@ -120,12 +121,16 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qthx4"]
-size = Vector2(11, 20)
+size = Vector2(10.5, 18)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rjcgj"]
-size = Vector2(11, 20)
+size = Vector2(10, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ae31c"]
+size = Vector2(10, 17)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
+collision_layer = 8
 collision_mask = 3
 script = ExtResource("1_j24fr")
 speed = 100.0
@@ -133,12 +138,10 @@ metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_vloih")
-animation = &"hurt"
-frame = 11
-frame_progress = 1.0
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.5, -1)
+position = Vector2(-1.75, 1)
 shape = SubResource("RectangleShape2D_qthx4")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -156,10 +159,27 @@ script = ExtResource("17_dsygk")
 
 [node name="HitPointsComponent" type="Area2D" parent="."]
 position = Vector2(-1.5, 0)
+collision_layer = 8
+collision_mask = 0
+monitoring = false
 script = ExtResource("18_okex3")
 starting_hp = 3
 
 [node name="HitPointShape" type="CollisionShape2D" parent="HitPointsComponent"]
-position = Vector2(0, -1)
+position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_rjcgj")
 debug_color = Color(0.115092, 0.647507, 0, 0.42)
+
+[node name="PlayerAttack" type="Area2D" parent="."]
+position = Vector2(-1.5, 0)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("23_gfm7g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerAttack"]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_ae31c")
+debug_color = Color(0.959285, 1.73271e-06, 0.522471, 0.42)
+
+[connection signal="body_entered" from="PlayerAttack" to="PlayerAttack" method="_on_body_entered"]

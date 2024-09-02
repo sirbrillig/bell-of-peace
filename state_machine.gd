@@ -17,6 +17,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if current_state and get_parent().is_healed:
+		on_child_state_changed(current_state, "EnemyIdle")
+		return
 	if current_state:
 		current_state.update(delta)
 		

@@ -37,7 +37,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_pa72x")
 }, {
-"duration": 1.0,
+"duration": 3.0,
 "texture": ExtResource("3_4lu5d")
 }, {
 "duration": 1.0,
@@ -165,6 +165,7 @@ next_state = NodePath("../ChasePlayer")
 
 [node name="AttackArea" type="Area2D" parent="."]
 collision_layer = 0
+collision_mask = 8
 monitorable = false
 
 [node name="AttackShape" type="CollisionShape2D" parent="AttackArea"]
