@@ -188,4 +188,3 @@ tile_set = SubResource("TileSet_edvyl")
 
 [node name="Mob" parent="." instance=ExtResource("3_4hnut")]
 position = Vector2(460, 80)
-touches_required = 4

@@ -21,8 +21,7 @@ func exit():
 
 func _on_attack_area_area_entered(area) -> void:
 	if area is HitPointsComponent:
-		area.damage(1)
-
+		area.damage(1, enemy.get_facing())
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if enemy.is_attacking:

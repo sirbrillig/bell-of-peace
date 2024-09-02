@@ -15,6 +15,9 @@ func is_healed() -> bool:
 
 func touched_by_player() -> void:
 	heal_touches += 1
+	
+func get_facing() -> int:
+	return $FacingComponent.facing
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
