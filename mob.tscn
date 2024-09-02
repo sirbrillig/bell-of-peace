@@ -156,11 +156,12 @@ enemy = NodePath("../..")
 next_state_range = 140.0
 next_state = NodePath("../ChasePlayer")
 
-[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy", "attack_shape", "animation")]
+[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy", "attack_shape", "animation", "next_state")]
 script = ExtResource("27_rwgth")
 enemy = NodePath("../..")
 attack_shape = NodePath("../../AttackArea/AttackShape")
 animation = NodePath("../../AnimatedSprite2D")
+next_state = NodePath("../ChasePlayer")
 
 [node name="AttackArea" type="Area2D" parent="."]
 collision_layer = 0
@@ -172,4 +173,5 @@ shape = SubResource("RectangleShape2D_0g86e")
 disabled = true
 debug_color = Color(1, 0, 0, 0.419608)
 
+[connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/Attack" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="area_entered" from="AttackArea" to="StateMachine/Attack" method="_on_attack_area_area_entered"]

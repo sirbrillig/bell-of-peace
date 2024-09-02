@@ -13,11 +13,14 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if is_attacking:
 		$AnimatedSprite2D.animation = "attack"
+		$AnimatedSprite2D.play()
 		return
 	if velocity.x != 0:
 		$AnimatedSprite2D.animation = "walk"
+		$AnimatedSprite2D.play()
 		return
 	$AnimatedSprite2D.animation = "idle"
+	$AnimatedSprite2D.play()
 
 func _physics_process(_delta: float) -> void:
 	if is_on_wall():
