@@ -27,6 +27,11 @@ window/stretch/mode="canvas_items"
 
 Player=""
 
+[layer_names]
+
+2d_physics/layer_2="enemies"
+2d_physics/layer_3="attacks"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

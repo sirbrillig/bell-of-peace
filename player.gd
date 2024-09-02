@@ -1,4 +1,6 @@
 extends CharacterBody2D
+class_name Player
+
 @export var speed: float
 
 # Called when the node enters the scene tree for the first time.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://ckkvgyes778g"]
+[gd_scene load_steps=22 format=3 uid="uid://ckkvgyes778g"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_j24fr"]
 [ext_resource type="Texture2D" uid="uid://chqmsp78v45ft" path="res://Priest-Idle/Priest-Idle-0.png" id="2_ypgkm"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://bbo2s8bdimclb" path="res://Priest-Walk/Priest-Walk-7.png" id="15_7buk7"]
 [ext_resource type="Script" path="res://gravity_component.gd" id="16_vys1i"]
 [ext_resource type="Script" path="res://facing_component.gd" id="17_dsygk"]
+[ext_resource type="Script" path="res://hit_points_component.gd" id="18_okex3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vloih"]
 animations = [{
@@ -73,8 +74,11 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xu03d"]
-size = Vector2(12, 19)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qthx4"]
+size = Vector2(11, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rjcgj"]
+size = Vector2(11, 20)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_mask = 3
@@ -88,8 +92,8 @@ animation = &"walk"
 frame = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 0.5)
-shape = SubResource("RectangleShape2D_xu03d")
+position = Vector2(-1.5, -1)
+shape = SubResource("RectangleShape2D_qthx4")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-2, -35)
@@ -101,5 +105,14 @@ jump_height = 40.0
 jump_time_to_peak = 0.4
 jump_time_to_descent = 0.3
 
-[node name="FacingComponent" type="Node2D" parent="." groups=["Player"]]
+[node name="FacingComponent" type="Node2D" parent="."]
 script = ExtResource("17_dsygk")
+
+[node name="HitPointsComponent" type="Area2D" parent="."]
+position = Vector2(-1.5, 0)
+script = ExtResource("18_okex3")
+
+[node name="HitPointShape" type="CollisionShape2D" parent="HitPointsComponent"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_rjcgj")
+debug_color = Color(0.115092, 0.647507, 0, 0.42)
