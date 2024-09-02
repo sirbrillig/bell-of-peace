@@ -11,5 +11,4 @@ func _ready() -> void:
 
 func damage(amount: int) -> void:
 	current_hp -= amount
-	if current_hp < 1:
-		get_parent().queue_free()
+	get_parent().is_being_hit = true

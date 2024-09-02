@@ -119,9 +119,7 @@ metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_11yxm")
-animation = &"idle"
-frame = 3
-frame_progress = 0.508086
+animation = &"attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-7, 3.25)
@@ -158,9 +156,10 @@ enemy = NodePath("../..")
 next_state_range = 140.0
 next_state = NodePath("../ChasePlayer")
 
-[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy")]
+[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy", "animation")]
 script = ExtResource("27_rwgth")
 enemy = NodePath("../..")
+animation = NodePath("../../AnimatedSprite2D")
 
 [node name="AttackArea" type="Area2D" parent="."]
 collision_layer = 0

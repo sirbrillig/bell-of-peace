@@ -1,9 +1,13 @@
-[gd_scene load_steps=22 format=3 uid="uid://ckkvgyes778g"]
+[gd_scene load_steps=26 format=3 uid="uid://ckkvgyes778g"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_j24fr"]
+[ext_resource type="Texture2D" uid="uid://dbfpismsg1h34" path="res://Priest-Hurt/Priest-Hurt-0.png" id="2_o27e6"]
 [ext_resource type="Texture2D" uid="uid://chqmsp78v45ft" path="res://Priest-Idle/Priest-Idle-0.png" id="2_ypgkm"]
 [ext_resource type="Texture2D" uid="uid://dskfu5hagg422" path="res://Priest-Idle/Priest-Idle-1.png" id="3_b6dtj"]
+[ext_resource type="Texture2D" uid="uid://c22a4vmj38xhf" path="res://Priest-Hurt/Priest-Hurt-1.png" id="3_noqin"]
+[ext_resource type="Texture2D" uid="uid://ctriu3ndnxm2m" path="res://Priest-Hurt/Priest-Hurt-2.png" id="4_1mjqr"]
 [ext_resource type="Texture2D" uid="uid://cnglw8nqrem0p" path="res://Priest-Idle/Priest-Idle-2.png" id="4_65v3u"]
+[ext_resource type="Texture2D" uid="uid://dbjf2ow4ty58x" path="res://Priest-Hurt/Priest-Hurt-3.png" id="5_mpg73"]
 [ext_resource type="Texture2D" uid="uid://ds42jl1mfs7s2" path="res://Priest-Idle/Priest-Idle-3.png" id="5_rmsmo"]
 [ext_resource type="Texture2D" uid="uid://bhirasrcbys20" path="res://Priest-Idle/Priest-Idle-4.png" id="6_ttntp"]
 [ext_resource type="Texture2D" uid="uid://ceru1vgnumghp" path="res://Priest-Idle/Priest-Idle-5.png" id="7_npt3t"]
@@ -21,6 +25,35 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vloih"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_o27e6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_noqin")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1mjqr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_mpg73")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_o27e6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_noqin")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1mjqr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_mpg73")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 12.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_ypgkm")
@@ -88,8 +121,9 @@ metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_vloih")
-animation = &"walk"
-frame = 7
+animation = &"hurt"
+frame = 2
+frame_progress = 0.549195
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.5, -1)
@@ -111,6 +145,7 @@ script = ExtResource("17_dsygk")
 [node name="HitPointsComponent" type="Area2D" parent="."]
 position = Vector2(-1.5, 0)
 script = ExtResource("18_okex3")
+starting_hp = 3
 
 [node name="HitPointShape" type="CollisionShape2D" parent="HitPointsComponent"]
 position = Vector2(0, -1)

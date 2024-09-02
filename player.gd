@@ -3,6 +3,8 @@ class_name Player
 
 @export var speed: float
 
+var is_being_hit: bool
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$AnimatedSprite2D.animation = "idle"
@@ -11,10 +13,18 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	if is_being_hit and ! $AnimatedSprite2D.is_playing():
+		is_being_hit = false
+		$AnimatedSprite2D.animation = "idle"
+		$AnimatedSprite2D.play()
+		
+	if is_being_hit:
+		$AnimatedSprite2D.animation = "hurt"
+		return
 	if velocity.x != 0:
 		$AnimatedSprite2D.animation = "walk"
-	else:
-		$AnimatedSprite2D.animation = "idle"
+		return
+	$AnimatedSprite2D.animation = "idle"
 
 func _physics_process(_delta: float) -> void:
 	var direction_h = Input.get_axis("ui_left", "ui_right")
