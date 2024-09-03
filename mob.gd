@@ -14,7 +14,11 @@ func is_healed() -> bool:
 	return heal_touches >= touches_required
 
 func touched_by_player() -> void:
+	if is_healed():
+		return
 	heal_touches += 1
+	$TouchEffect.visible = true
+	$TouchEffect.play()
 	
 func get_facing() -> int:
 	return $FacingComponent.facing
@@ -38,3 +42,7 @@ func _physics_process(_delta: float) -> void:
 	if is_on_wall():
 		$GravityComponent.jump()
 	move_and_slide()
+
+
+func _on_touch_effect_animation_finished() -> void:
+	$TouchEffect.visible = false

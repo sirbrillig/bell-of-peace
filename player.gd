@@ -30,10 +30,14 @@ func _physics_process(_delta: float) -> void:
 	if is_being_hit:
 		move_and_slide()
 		return
+	
 	var direction_h = Input.get_axis("ui_left", "ui_right")
 	velocity.x = speed * direction_h
 	
 	if Input.is_action_just_pressed("ui_up") and is_on_floor():
 		$GravityComponent.jump()
 	
+	if velocity.y < -300:
+		#FIXME: IDK what causes this
+		assert(false, "what hit me")
 	move_and_slide()

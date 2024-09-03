@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://c0vbht3tuvvsi"]
+[gd_scene load_steps=44 format=3 uid="uid://c0vbht3tuvvsi"]
 
 [ext_resource type="Script" path="res://mob.gd" id="1_dteuc"]
 [ext_resource type="Texture2D" uid="uid://qpc8mfpcc4aw" path="res://Orc-Attack01/Orc-Attack01-0.png" id="1_sob57"]
@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://evvc6buxe2t5" path="res://Orc-Walk/Orc-Walk-7.png" id="20_70eux"]
 [ext_resource type="Script" path="res://enemy_idle.gd" id="20_x54l6"]
 [ext_resource type="Script" path="res://attack.gd" id="27_rwgth"]
+[ext_resource type="Texture2D" uid="uid://25ha4t7je41d" path="res://452.png" id="28_gqeiu"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_11yxm"]
 animations = [{
@@ -112,6 +113,91 @@ size = Vector2(13, 14.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0g86e"]
 size = Vector2(13, 25)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_y0s0m"]
+atlas = ExtResource("28_gqeiu")
+region = Rect2(0, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27bjp"]
+atlas = ExtResource("28_gqeiu")
+region = Rect2(64, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qjlu"]
+atlas = ExtResource("28_gqeiu")
+region = Rect2(128, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0hbv0"]
+atlas = ExtResource("28_gqeiu")
+region = Rect2(192, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dexwe"]
+atlas = ExtResource("28_gqeiu")
+region = Rect2(256, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gp0xp"]
+atlas = ExtResource("28_gqeiu")
+region = Rect2(320, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqdgw"]
+atlas = ExtResource("28_gqeiu")
+region = Rect2(384, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10joo"]
+atlas = ExtResource("28_gqeiu")
+region = Rect2(448, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4wev"]
+atlas = ExtResource("28_gqeiu")
+region = Rect2(512, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y0d7c"]
+atlas = ExtResource("28_gqeiu")
+region = Rect2(576, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uve0o"]
+atlas = ExtResource("28_gqeiu")
+region = Rect2(640, 320, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fda22"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y0s0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_27bjp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8qjlu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0hbv0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dexwe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gp0xp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqdgw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_10joo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n4wev")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y0d7c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uve0o")
+}],
+"loop": false,
+"name": &"default",
+"speed": 18.0
+}]
+
 [node name="Mob" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_dteuc")
@@ -174,5 +260,14 @@ shape = SubResource("RectangleShape2D_0g86e")
 disabled = true
 debug_color = Color(1, 0, 0, 0.419608)
 
+[node name="TouchEffect" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(-6, 2)
+scale = Vector2(0.777832, 0.812402)
+sprite_frames = SubResource("SpriteFrames_fda22")
+frame = 10
+frame_progress = 1.0
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/Attack" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="area_entered" from="AttackArea" to="StateMachine/Attack" method="_on_attack_area_area_entered"]
+[connection signal="animation_finished" from="TouchEffect" to="." method="_on_touch_effect_animation_finished"]
