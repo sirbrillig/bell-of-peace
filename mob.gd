@@ -39,7 +39,7 @@ func _process(_delta: float) -> void:
 	$AnimatedSprite2D.play()
 
 func _physics_process(_delta: float) -> void:
-	if is_on_wall():
+	if is_on_wall() and is_on_floor():
 		$GravityComponent.jump()
 	move_and_slide()
 

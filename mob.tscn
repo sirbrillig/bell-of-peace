@@ -216,9 +216,9 @@ position = Vector2(-5, 2)
 
 [node name="GravityComponent" type="Node2D" parent="."]
 script = ExtResource("16_yag70")
-jump_height = 10.0
-jump_time_to_peak = 0.15
-jump_time_to_descent = 0.15
+jump_height = 35.0
+jump_time_to_peak = 0.36
+jump_time_to_descent = 0.32
 
 [node name="FacingComponent" type="Node2D" parent="."]
 script = ExtResource("17_7g6os")
