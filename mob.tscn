@@ -227,8 +227,9 @@ script = ExtResource("17_7g6os")
 script = ExtResource("18_t672t")
 initial_state = NodePath("ChasePlayer")
 
-[node name="ChasePlayer" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy", "attack_state", "unaware_state")]
+[node name="ChasePlayer" type="Node" parent="StateMachine" node_paths=PackedStringArray("facing_component", "enemy", "attack_state", "unaware_state")]
 script = ExtResource("19_6ca58")
+facing_component = NodePath("../../FacingComponent")
 speed = 40.0
 attack_range = 10.0
 aware_range = 150.0

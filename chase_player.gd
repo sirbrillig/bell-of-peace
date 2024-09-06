@@ -1,6 +1,7 @@
 extends State
 class_name ChasePlayer
 
+@export var facing_component: FacingComponent
 @export var speed: float
 @export var attack_range: float
 @export var aware_range: float
@@ -26,4 +27,7 @@ func physics_update(_delta: float) -> void:
 	move_toward_player()
 	
 func move_toward_player() -> void:
-	enemy.velocity.x = (enemy.position.direction_to(player_position) * speed).x
+	var direction = enemy.position.direction_to(player_position)
+	enemy.velocity.x = (direction * speed).x
+	if facing_component:
+		facing_component.set_facing(facing_component.LEFT if direction.x < 0 else facing_component.RIGHT)

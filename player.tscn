@@ -1,16 +1,22 @@
-[gd_scene load_steps=28 format=3 uid="uid://ckkvgyes778g"]
+[gd_scene load_steps=39 format=3 uid="uid://ckkvgyes778g"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_j24fr"]
+[ext_resource type="Texture2D" uid="uid://dpkj1q382dxrg" path="res://Priest-Heal/Priest-Heal-0.png" id="2_hg18e"]
 [ext_resource type="Texture2D" uid="uid://dbfpismsg1h34" path="res://Priest-Hurt/Priest-Hurt-0.png" id="2_o27e6"]
 [ext_resource type="Texture2D" uid="uid://chqmsp78v45ft" path="res://Priest-Idle/Priest-Idle-0.png" id="2_ypgkm"]
 [ext_resource type="Texture2D" uid="uid://dskfu5hagg422" path="res://Priest-Idle/Priest-Idle-1.png" id="3_b6dtj"]
 [ext_resource type="Texture2D" uid="uid://c22a4vmj38xhf" path="res://Priest-Hurt/Priest-Hurt-1.png" id="3_noqin"]
+[ext_resource type="Texture2D" uid="uid://dqbun6xs7f0nm" path="res://Priest-Heal/Priest-Heal-1.png" id="3_om3kw"]
 [ext_resource type="Texture2D" uid="uid://ctriu3ndnxm2m" path="res://Priest-Hurt/Priest-Hurt-2.png" id="4_1mjqr"]
+[ext_resource type="Texture2D" uid="uid://xno5itlp7maa" path="res://Priest-Heal/Priest-Heal-2.png" id="4_2ska3"]
 [ext_resource type="Texture2D" uid="uid://cnglw8nqrem0p" path="res://Priest-Idle/Priest-Idle-2.png" id="4_65v3u"]
+[ext_resource type="Texture2D" uid="uid://b0i0re2ivfwlp" path="res://Priest-Heal/Priest-Heal-3.png" id="5_mme5d"]
 [ext_resource type="Texture2D" uid="uid://dbjf2ow4ty58x" path="res://Priest-Hurt/Priest-Hurt-3.png" id="5_mpg73"]
 [ext_resource type="Texture2D" uid="uid://ds42jl1mfs7s2" path="res://Priest-Idle/Priest-Idle-3.png" id="5_rmsmo"]
 [ext_resource type="Texture2D" uid="uid://bhirasrcbys20" path="res://Priest-Idle/Priest-Idle-4.png" id="6_ttntp"]
+[ext_resource type="Texture2D" uid="uid://dm1btbk8yfwfh" path="res://Priest-Heal/Priest-Heal-4.png" id="6_uawcl"]
 [ext_resource type="Texture2D" uid="uid://ceru1vgnumghp" path="res://Priest-Idle/Priest-Idle-5.png" id="7_npt3t"]
+[ext_resource type="Texture2D" uid="uid://cjmfjo0gbew1q" path="res://Priest-Heal/Priest-Heal-5.png" id="7_vhy15"]
 [ext_resource type="Texture2D" uid="uid://c281ibg06ttdt" path="res://Priest-Walk/Priest-Walk-0.png" id="8_jpsvl"]
 [ext_resource type="Texture2D" uid="uid://c51i3cbsigf6o" path="res://Priest-Walk/Priest-Walk-1.png" id="9_soafd"]
 [ext_resource type="Texture2D" uid="uid://d2480yxoes2ec" path="res://Priest-Walk/Priest-Walk-2.png" id="10_epyfm"]
@@ -23,9 +29,36 @@
 [ext_resource type="Script" path="res://facing_component.gd" id="17_dsygk"]
 [ext_resource type="Script" path="res://hit_points_component.gd" id="18_okex3"]
 [ext_resource type="Script" path="res://player_attack.gd" id="23_gfm7g"]
+[ext_resource type="Texture2D" uid="uid://dentq2tlplesf" path="res://Priest-Heal_Effect/Priest-Heal_Effect-0.png" id="30_05y51"]
+[ext_resource type="Texture2D" uid="uid://q371pgf5grv2" path="res://Priest-Heal_Effect/Priest-Heal_Effect-1.png" id="31_nv0u7"]
+[ext_resource type="Texture2D" uid="uid://bxn6c1wyw1sk8" path="res://Priest-Heal_Effect/Priest-Heal_Effect-2.png" id="32_46paj"]
+[ext_resource type="Texture2D" uid="uid://cndrmp3gywsci" path="res://Priest-Heal_Effect/Priest-Heal_Effect-3.png" id="33_joomq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vloih"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hg18e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_om3kw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2ska3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_mme5d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_uawcl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_vhy15")
+}],
+"loop": false,
+"name": &"heal",
+"speed": 8.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_o27e6")
@@ -127,7 +160,27 @@ size = Vector2(10.5, 18)
 size = Vector2(10, 17)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ae31c"]
-size = Vector2(10, 17)
+size = Vector2(24, 21.5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hst84"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("30_05y51")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_nv0u7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_46paj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_joomq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 8
@@ -138,7 +191,7 @@ metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_vloih")
-animation = &"idle"
+animation = &"heal"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.75, 1)
@@ -157,12 +210,13 @@ jump_time_to_descent = 0.32
 [node name="FacingComponent" type="Node2D" parent="."]
 script = ExtResource("17_dsygk")
 
-[node name="HitPointsComponent" type="Area2D" parent="."]
+[node name="HitPointsComponent" type="Area2D" parent="." node_paths=PackedStringArray("facing_component")]
 position = Vector2(-1.5, 0)
 collision_layer = 8
 collision_mask = 0
 monitoring = false
 script = ExtResource("18_okex3")
+facing_component = NodePath("../FacingComponent")
 starting_hp = 3
 
 [node name="HitPointShape" type="CollisionShape2D" parent="HitPointsComponent"]
@@ -170,16 +224,26 @@ position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_rjcgj")
 debug_color = Color(0.115092, 0.647507, 0, 0.42)
 
-[node name="PlayerAttack" type="Area2D" parent="."]
+[node name="PlayerAttack" type="Area2D" parent="." node_paths=PackedStringArray("player")]
 position = Vector2(-1.5, 0)
 collision_layer = 0
 collision_mask = 2
 monitorable = false
 script = ExtResource("23_gfm7g")
+player = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerAttack"]
-position = Vector2(0.5, 0.5)
+position = Vector2(21.5, 1.25)
 shape = SubResource("RectangleShape2D_ae31c")
 debug_color = Color(0.959285, 1.73271e-06, 0.522471, 0.42)
 
+[node name="HealPower" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 4
+position = Vector2(21, -5)
+sprite_frames = SubResource("SpriteFrames_hst84")
+frame_progress = 0.498417
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="PlayerAttack" to="PlayerAttack" method="_on_body_entered"]
+[connection signal="body_exited" from="PlayerAttack" to="PlayerAttack" method="_on_body_exited"]

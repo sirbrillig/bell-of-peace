@@ -21,7 +21,7 @@ func touched_by_player() -> void:
 	$TouchEffect.play()
 	
 func get_facing() -> int:
-	return $FacingComponent.facing
+	return $FacingComponent.get_facing()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
